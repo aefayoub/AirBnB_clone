@@ -7,4 +7,4 @@ This is the first step towards building your first full web application: the Air
 
 ### Description of the command interpreter
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/aefayoub/AirBnB_clone/blob/master/815046647d23428a14ca.png)
