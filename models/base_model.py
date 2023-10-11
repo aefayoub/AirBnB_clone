@@ -4,6 +4,7 @@ Imports modules
 """
 import uuid
 from datetime import datetime
+from models import storage
 
 """
 Module that contains class Base
@@ -19,7 +20,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.update_at = self.created_at
-            
+            storage.new(self)
         else:
             f = "%Y-%m-%dT%H:%M:%S.%f"
             for key, value in kwargs.items():
@@ -28,19 +29,17 @@ class BaseModel:
                 if key != '__class__':
                     setattr(self, key, value)
 
-            self.id = Base.__nb_objects
-
     def __str__(self):
         """function str print: [<class name>] (<self.id>) <self.__dict__> """
         className = "[" + self.__class__.__name__ + "]"
         classDict = {k: v for (k, v) in self.__dict__.items() if (not v) is False}
-        classDict = self.__dict__
+        #classDict = self.__dict__
         return className + " (" + self.id + ") " + str(classDict)
 
     def save(self):
         """Updates the public instance attribute"""
         self.updated_at = datetime.now()
-        #storage.save()
+        storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__ of the instance"""
