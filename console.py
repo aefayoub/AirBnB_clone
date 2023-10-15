@@ -17,9 +17,9 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it, and prints the id."""
         if not arg:
-              print("** class name missing **")
+            print("** class name missing **")
         if arg not in HBNBCommand.l_classes:
-              print("** class doesn't exist **")
+            print("** class doesn't exist **")
         else:
             class_dict = {'BaseModel': BaseModel, 'User': User}
             get_model = class_dict[arg]()
@@ -27,12 +27,12 @@ class HBNBCommand(cmd.Cmd):
             get_model.save()
 
     def do_show(self, arg):
-        """Prints the string representation of an instance based on class name and id."""
+        """Prints the string representation of an instance."""
         args = arg.split(' ')
         if not arg:
             print("** class name missing **")
             return
-        
+
         if args[0] not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
@@ -48,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
                     print(v)
                     return
             print("** no instance found **")
-    
+
     def do_all(self, arg):
         """Prints all string representation of all instances based"""
 
@@ -60,24 +60,24 @@ class HBNBCommand(cmd.Cmd):
         if args[0] not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         else:
-             all_data = storage.all()
-             instances = []
-             for k, v in all_data.items():
-                 data_name = v.__class__.__name__
-                 if data_name == args[0]:
-                     instances += [v.__str__()]
-             print(instances)
-    
+            all_data = storage.all()
+            instances = []
+            for k, v in all_data.items():
+                data_name = v.__class__.__name__
+                if data_name == args[0]:
+                    instances += [v.__str__()]
+            print(instances)
+
     def do_update(self, arg):
         """ Updates an instance based on the class name and id"""
 
         if not arg:
             print("** class name missing **")
             return
-        
+
         a = ""
         for argv in arg.split(','):
-            a = a+ argv
+            a = a + argv
 
         args = shlex.split(a)
 
@@ -102,18 +102,18 @@ class HBNBCommand(cmd.Cmd):
         print("** no instance found **")
 
     def do_destroy(self, arg):
-        """Deletes an instance based on the class name and id (save the change into the JSON file)"""
+        """Deletes an instance based on the class name and id."""
 
         if not arg:
-              print("** class name missing **")
-              return
+            print("** class name missing **")
+            return
 
         args = arg.split(' ')
 
         if args[0] not in HBNBCommand.l_classes:
-              print("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif len(args) == 1:
-              print("** instance id missing **")
+            print("** instance id missing **")
         else:
             all_data = storage.all()
             for k, v in all_data.items():
@@ -134,6 +134,7 @@ class HBNBCommand(cmd.Cmd):
         """EOF command to exit the program"""
         print()
         return True
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
