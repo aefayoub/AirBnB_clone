@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
     """The class HBNBCommand"""
 
     prompt = "(hbnb) "
-    l_classes = ['BaseModel', 'User']
+    l_classes = ['BaseModel', 'User', 'Place', 'State', 'City', 'Amenity', 'Review']
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it, and prints the id."""
