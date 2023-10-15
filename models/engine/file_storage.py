@@ -33,6 +33,7 @@ class FileStorage:
     def reload(self):
         """Writing the dictionary representation to a file won’t be relevant"""
         from models.base_model import BaseModel
+        from models.user import User
 
         alldict = {'BaseModel': BaseModel, 'User': User}
 
