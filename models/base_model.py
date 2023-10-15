@@ -32,8 +32,11 @@ class BaseModel:
     def __str__(self):
         """function str print: [<class name>] (<self.id>) <self.__dict__> """
         className = "[" + self.__class__.__name__ + "]"
-        classDict = {k: v for (k, v) in self.__dict__.items() if (not v) is False}
-        #classDict = self.__dict__
+        classDict = {
+                k: v
+                for (k, v) in self.__dict__.items()
+                if (not v) is False
+        }
         return className + " (" + self.id + ") " + str(classDict)
 
     def save(self):
@@ -42,7 +45,7 @@ class BaseModel:
         storage.save()
 
     def to_dict(self):
-        """returns a dictionary containing all keys/values of __dict__ of the instance"""
+        """returns a dictionary containing all keys/values of __dict__"""
         newDict = {}
 
         for k, v in self.__dict__.items():
