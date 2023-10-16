@@ -43,10 +43,17 @@ class HBNBCommand(cmd.Cmd):
         """Creates a new instance of BaseModel, saves it, and prints the id."""
         if not arg:
             print("** class name missing **")
-        if arg not in HBNBCommand.l_classes:
+        elif arg not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         else:
-            class_dict = {'BaseModel': BaseModel, 'User': User}
+            class_dict = {
+                    'BaseModel': BaseModel,
+                    'User': User,
+                    'Place': Place,
+                    'City': City,
+                    'Amenity': Amenity,
+                    'State': State,
+                    'Review': Review}
             get_model = class_dict[arg]()
             print(get_model.id)
             get_model.save()
@@ -54,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         """Prints the string representation of an instance."""
         args = arg.split(' ')
-        if not arg:
+i        if not arg:
             print("** class name missing **")
             return
 
