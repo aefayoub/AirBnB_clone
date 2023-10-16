@@ -82,6 +82,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         args = arg.split(' ')
+
         if args[0] not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         else:
@@ -89,9 +90,9 @@ class HBNBCommand(cmd.Cmd):
             instances = []
             for k, v in all_data.items():
                 data_name = v.__class__.__name__
-                if data_name == args[0]:
-                    instances += [v.__str__()]
-            print(instances)
+                # if data_name == args[0]:
+                instances += [v.__str__()]
+            print(instances, len(all_data.items()))
 
     def do_update(self, arg):
         """ Updates an instance based on the class name and id"""
