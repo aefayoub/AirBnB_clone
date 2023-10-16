@@ -158,7 +158,7 @@ class HBNBCommand(cmd.Cmd):
                     storage.save()
                     return
             print("** no instance found **")
-    
+
     def emptyline(self):
         """do nothing when empty line"""
         pass
