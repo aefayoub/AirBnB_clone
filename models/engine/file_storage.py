@@ -40,7 +40,14 @@ class FileStorage:
         from models.amenity import Amenity
         from models.review import Review
 
-        alldict = {'BaseModel': BaseModel, 'User': User, 'Place': Place, 'State': State, 'City': City, 'Amenity': Amenity, 'Review': Review}
+        alldict = {
+                'BaseModel': BaseModel,
+                'User': User,
+                'Place': Place,
+                'State': State,
+                'City': City,
+                'Amenity': Amenity,
+                'Review': Review}
 
         if os.path.exists(FileStorage.__file_path) is True:
             with open(FileStorage.__file_path, 'r') as f:
