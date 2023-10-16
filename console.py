@@ -46,7 +46,14 @@ class HBNBCommand(cmd.Cmd):
         elif arg not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         else:
-            class_dict = {'BaseModel': BaseModel, 'User': User}
+            class_dict = {
+                    'BaseModel': BaseModel,
+                    'User': User,
+                    'Place': Place,
+                    'State': State,
+                    'City': City,
+                    'Amenity': Amenity,
+                    'Review': Review}
             get_model = class_dict[arg]()
             print(get_model.id)
             get_model.save()
@@ -90,9 +97,9 @@ class HBNBCommand(cmd.Cmd):
             instances = []
             for k, v in all_data.items():
                 data_name = v.__class__.__name__
-                # if data_name == args[0]:
-                instances += [v.__str__()]
-            print(instances, len(all_data.items()))
+                if data_name == args[0]:
+                    instances += [v.__str__()]
+            print(instances)
 
     def do_update(self, arg):
         """ Updates an instance based on the class name and id"""
