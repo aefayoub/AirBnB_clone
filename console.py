@@ -124,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
                         setattr(v, args[2], args[3])
                         storage.save()
                     return
-        print("** no instance found **")
+            print("** no instance found **")
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id."""
