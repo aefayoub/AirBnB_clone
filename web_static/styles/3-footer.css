@@ -1,13 +1,14 @@
 footer{
-	position:relative;
-	bottom:0;
-	color white;
+	position:absolute;
+	bottom:0; 
 	height: 60px;
 	width: 100%;
-	border-top: 1px #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+	display:table;
 }
 
 footer p.text{
 	text-align: center;
-	vertical-align: center;
+	display:table-cell;
+	vertical-align:middle;
 }

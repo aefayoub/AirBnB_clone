@@ -1,13 +1,17 @@
 header{
+	position:absolute;
+	top:0;
 	color: white;
 	height: 70px;
 	width: 100%;
 	border: bottom 1px #CCCCCC;
+	display:table;
 }
 
 header div.logo{
-	background-image: src("images/logo.png");
+	background-image: url("images/logo.png");
 	align: left;
-	vertical-align: center;
+	display:table-cell;
+	vertical-align: middle;
 	margin-left:20px;
 }
