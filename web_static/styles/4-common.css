@@ -6,6 +6,15 @@
 	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+ul{
+	list-style: none;
+}
+
+ul li{
+	list-style-position: inside;
+	text-indent: 0;
+}
+
 div.container{
 	width: 1000px;
 	max-width:1000px;
